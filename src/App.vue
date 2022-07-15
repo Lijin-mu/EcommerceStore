@@ -5,53 +5,60 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <div class="header__logo">
-      <img alt="Vue logo" class="logo" src="@/assets/img/fine-shop-logo.png" />
+    <div class="container">
+      <div class="header">
+        <div class="header__logo">
+          <img alt="Vue logo" class="logo" src="@/assets/img/fine-shop-logo.png" />
+        </div>
+        <div class="header__search">
+          <input class="form-control" placeholder="search" />
+        </div>
+        <div class="header__actions">
+          <ul>
+            <li>
+              <div class="header-action account-icon">
+                <font-awesome-icon icon="fa-solid fa-user" />
+              </div>
+            </li>
+            <li>
+              <div class="header-action wishlist-icon">
+                <font-awesome-icon icon="fa-solid fa-heart" />
+              </div>
+            </li>
+            <li>
+              <div class="header-action cart-icon">
+                <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+                <span class="cart-count">0</span>
+                <span class="cart-amount">12.00</span>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="navigation">
+         <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
+      </div>
     </div>
-    <div class="header__search">
-      <input class="form-control" placeholder="search" />
-    </div>
-    <div class="header__actions">
-      <ul>
-        <li>
-          <div class="account-iocn">
-            <i class="fas fa-user"></i>
-          </div>
-        </li>
-          <li>
-          <div class="wishlist-iocn">
-            <i class="fas fa-heart"></i>
-          </div>
-        </li>
-          <li>
-          <div class="cart-iocn">
-            <i class="fas fa-cart-arrow-down"></i>
-            <span class="cart-count">0</span>
-          </div>
-        </li>
-         <li>
-          <div class="cart-amount"></div>
-        </li>
-      </ul>
 
 
-    </div>
-    
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
   </header>
-
   <RouterView />
+  <footer>
+    &copy 2hts
+  </footer>
 </template>
 
 <style lang="scss">
 @import '@/assets/scss/app.scss';
+#app{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 
+}
 </style>
