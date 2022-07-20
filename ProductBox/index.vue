@@ -1,13 +1,13 @@
 <template>
 <div class="product">
     <div class="product-image">
-    <img :src="image" />
+    <img :src="item.image" />
     </div>
     <div class="product-details">
-       <div class="product-details__title">{{ title }}</div>
+       <div class="product-details__title">{{ item.title }}</div>
          <div class="product-details__rating"></div>
-        <div class="product-details__description">{{ description }}</div>
-        <div class="product-details__price">$ {{ price }}</div>
+        <div class="product-details__description">{{ item.description }}</div>
+        <div class="product-details__price">$ {{ item.price }}</div>
         <div class="product-details__actions">
             <div class="add-to-cart"></div>
             <div class="add-to-wishlist"></div>
@@ -27,10 +27,7 @@ export default {
     }
   },
   props: {
-    title: String,
-    description: String,
-    price: Number,
-    image: String
+    item:Object
   },
   computed: {
 
@@ -48,16 +45,21 @@ export default {
 
 .product{
     width: 100%;
-    max-width: 250px;
     height: auto;
     padding: 15px;
     border: 1px solid #ccc;
     &-image{
         width:100%;
-        height: 250px;
+        height: 150px;
+        @media (min-width: 577px) {
+          height: 250px;
+        }
         img{
             width: 100%;
-            height: 250px;
+             height: 150px;
+            @media (min-width: 577px) {
+              height: 250px;
+            }
             object-fit: contain;
             object-position: center;
         }

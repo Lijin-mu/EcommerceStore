@@ -3,21 +3,18 @@
  <div class="shop">
     <div class="products-list">
       <div v-for="product in products" class="products-list__item">
-          <ProductBox :image="product.image" :title="product.title" :description="product.description" :price="product.price" />
+          <ProductBox :item="product" />
       </div>
-      
     </div>
-
   </div>
 </div>
- 
 </template>
 
 <script>
 
 import ProductBox from '../../ProductBox/index.vue';
 
-  const API_URL = `https://fakestoreapi.com/`
+const API_URL = `https://fakestoreapi.com/`
 
 export default {
   name: 'ShopView',
@@ -29,7 +26,6 @@ export default {
   }),
 
     created() {
-    // fetch on init
     this.fetchData()
   },
 
@@ -53,6 +49,31 @@ export default {
 <style lang="scss"> 
 .shop {
     padding: 50px 0;
+}
+  .products-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: auto;
+    margin-left: -5px;
+    margin-right: -5px;
+    &__item{
+    width: 50%;
+    padding: 5px;
+    }
+  }
+
+@media (min-width: 577px) {
+  .products-list{
+    margin-left: -5px;
+    margin-right: -5px;
+    &__item{
+    width: 33.33%;
+    padding: 5px;
+    }
+  }
+
 }
 @media (min-width: 1024px) {
   .about {
